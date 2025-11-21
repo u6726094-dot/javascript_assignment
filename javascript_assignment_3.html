@@ -1,48 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Filter Names</title>
-  </head>
+<head>
+  <title>Filter Names by Letter</title>
+</head>
+<body>
 
-  <body>
-    <h2>Filtered Names (Starting With B)</h2>
+  <h2>Filter Names Starting With a Letter</h2>
 
-    <script>
-      // Array of people
-      const people = [
-        "Alice Anderson",
-        "Aaron Adams",
-        "Bella Brown",
-        "Brian Black",
-        "Cathy Carter",
-        "Charles Cooper",
-        "Diana Davis",
-        "Daniel Drake",
-        "Ella Evans",
-        "Ethan Edwards",
-        "Fiona Fisher",
-        "Frank Foster",
-        "Grace Green",
-        "Gavin Gray",
-        "Hannah Harris",
-        "Henry Hill",
-        "Isabella Ingram",
-        "Ian Irving",
-        "Jack Johnson",
-        "Julia James"
-      ];
+  <label>Enter a letter:</label>
+  <input type="text" id="letterInput" maxlength="1">
+  <button onclick="filterNames()">Filter</button>
 
-      // Choose the letter you want to filter
-      const letter = "B";
+  <h3>Result:</h3>
+  <ul id="resultList"></ul>
 
-      // Use filter to keep names starting with that letter
-      const result = people.filter(function(name) {
-        return name.charAt(0) === letter;
+  <script>
+    const people = [
+      "Alice Anderson",
+      "Aaron Adams",
+      "Bella Brown",
+      "Brian Black",
+      "Cathy Carter",
+      "Charles Cooper",
+      "Diana Davis",
+      "Daniel Drake",
+      "Ella Evans",
+      "Ethan Edwards",
+      "Fiona Fisher",
+      "Frank Foster",
+      "Grace Green",
+      "Gavin Gray",
+      "Hannah Harris",
+      "Henry Hill",
+      "Isabella Ingram",
+      "Ian Irving",
+      "Jack Johnson",
+      "Julia James"
+    ];
+
+    function filterNames() {
+      const letter = document.getElementById("letterInput").value.toUpperCase(); 
+
+      const result = people.filter((name) => {
+        return name.charAt(0).toUpperCase() === letter;
       });
 
-      // Display result in console
-      console.log("Names starting with " + letter + ":");
-      console.log(result);
-    </script>
-  </body>
+      // Display the result
+      const list = document.getElementById("resultList");
+      list.innerHTML = ""; // clear old results
+
+      result.forEach((name) => {
+        list.innerHTML += `<li>${name}</li>`;
+      });
+    }
+  </script>
+
+</body>
 </html>
