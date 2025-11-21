@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add New Item</title>
+  </head>
+
+  <body>
+    <!-- Correct form action, POST, and enctype -->
+    <form 
+      action="https://athiphat-mybackend-01.southeastasia.cloudapp.azure.com/api/product"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+
+      <!-- ---------------- GENERAL INFO ---------------- -->
+      <fieldset>
+        <legend>General Info</legend>
+
+        <!-- Item Name -->
+        <p>
+          <label for="itemName">Item Name</label>
+          <input type="text" id="itemName" name="itemName" size="50" maxlength="500">
+        </p>
+
+        <!-- Description -->
+        <p>
+          <label for="itemDescription">Description</label><br>
+          <textarea id="itemDescription" name="itemDescription" cols="60" rows="6"></textarea>
+        </p>
+
+        <!-- File Input -->
+        <p>
+          <label for="coverImage">Cover Image</label>
+          <input type="file" id="coverImage" name="coverImage">
+        </p>
+
+        <!-- Category Dropdown -->
+        <p>
+          <label for="category">Category</label>
+          <select id="category" name="category">
+            <option value="notSpecified">Not Specified</option>
+            <option value="consumption">Consumption</option>
+            <option value="household">Household</option>
+            <option value="electronic">Electronic</option>
+            <option value="gadget">Gadget</option>
+          </select>
+        </p>
+
+      </fieldset>
+
+      <!-- ---------------- MISC ---------------- -->
+      <fieldset>
+        <legend>Misc.</legend>
+
+        <!-- Inventory -->
+        <p>
+          <label for="inventoryAmount">Inventory Amount</label>
+          <input type="number" id="inventoryAmount" name="inventoryAmount">
+        </p>
+
+        <!-- List Price -->
+        <p>
+          <label for="listPrice">List Price</label>
+          <input type="number" id="listPrice" name="listPrice">
+        </p>
+
+        <!-- Available Stores -->
+        <p>
+          <strong>Available Stores</strong><br>
+          <input type="checkbox" id="store1" name="availableStore[]" value="Bangkok">
+          <label for="store1">Bangkok</label>
+
+          <input type="checkbox" id="store2" name="availableStore[]" value="Pattaya">
+          <label for="store2">Pattaya</label>
+
+          <input type="checkbox" id="store3" name="availableStore[]" value="Phuket">
+          <label for="store3">Phuket</label>
+        </p>
+
+        <!-- Active Status -->
+        <p>
+          <strong>Active Status</strong><br>
+          <input type="radio" id="active" name="status" value="Active">
+          <label for="active">Active</label>
+
+          <input type="radio" id="inactive" name="status" value="Inactive">
+          <label for="inactive">Inactive</label>
+        </p>
+
+      </fieldset>
+
+      <!-- ---------------- STAFF ---------------- -->
+      <fieldset>
+        <legend>Staff</legend>
+
+        <p>
+          <label for="staffEmail">Staff Email</label>
+          <input type="email" id="staffEmail" name="staffEmail">
+        </p>
+      </fieldset>
+
+      <!-- Submit Button -->
+      <button type="submit">Submit Form</button>
+
+    </form>
+  </body>
+</html>
