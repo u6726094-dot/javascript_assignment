@@ -1,0 +1,36 @@
+.header{
+    color: rgb(227, 238, 238);
+    background-color: rgb(39, 228, 238);
+    text-align: center;
+    padding: 10px;
+}
+.Gg{
+    background-color: rgb(227, 238, 238);
+    color: rgb(39, 228, 238);
+    text-align: center;
+    padding: 10px;
+}
+.content{
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.biography img{
+   
+    border: 4px solid #222425;
+    margin-bottom: 15px;
+}
+.biography{
+    list-style-type: square;
+    padding-left: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+ 
+}
+.achievements{
+    list-style-type: square;
+    padding-left: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+ 

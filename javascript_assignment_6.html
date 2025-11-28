@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Details</title>
+</head>
+<body>
+    <h3>Monster Detail</h3>
+    <div>Select Monster:</div>
+    <div>
+        <select id="monster-list"></select>
+    </div>
+    <hr/>
+    <div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <td id="td-monster-id"></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td id="td-monster-name"></td>
+            </tr>
+            <tr>
+                <th>HP</th>
+                <td id="td-monster-hp"></td>
+            </tr>
+            <tr>
+                <th>EXP</th>
+                <td id="td-monster-exp"></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const monsters = [
+            { id: 1, name: "Fire Dragon", hp: 150, exp: 85 },
+            { id: 2, name: "Ice Wolf", hp: 75, exp: 45 },
+            { id: 3, name: "Shadow Goblin", hp: 40, exp: 25 },
+            { id: 4, name: "Lightning Phoenix", hp: 200, exp: 120 },
+            { id: 5, name: "Earth Golem", hp: 180, exp: 95 },
+            { id: 6, name: "Poison Spider", hp: 60, exp: 35 },
+            { id: 7, name: "Wind Eagle", hp: 90, exp: 55 },
+            { id: 8, name: "Dark Skeleton", hp: 65, exp: 40 },
+            { id: 9, name: "Crystal Unicorn", hp: 120, exp: 75 },
+            { id: 10, name: "Lava Titan", hp: 250, exp: 150 }
+        ];
+ 
+        const monsterList = document.getElementById('monster-list');
+        const tdMonsterId = document.getElementById('td-monster-id');
+        const tdMonsterName = document.getElementById('td-monster-name');
+        const tdMonsterHp = document.getElementById('td-monster-hp');
+        const tdMonsterExp = document.getElementById('td-monster-exp');
+ 
+        monsters.forEach(monster => {
+            const option = document.createElement('option');
+            option.value = monster.id;
+            option.textContent = monster.name;
+            monsterList.appendChild(option);
+        });
+        function displayMonsterDetails(monsterId) {
+            const monster = monsters.find(m => m.id == monsterId);
+            if (monster) {
+                tdMonsterId.textContent = monster.id;
+                tdMonsterName.textContent = monster.name;
+                tdMonsterHp.textContent = monster.hp;
+                tdMonsterExp.textContent = monster.exp;
+            }
+        }
+        monsterList.addEventListener('change', (event) => {
+            displayMonsterDetails(event.target.value);
+        });
+        if (monsters.length > 0) {
+            displayMonsterDetails(monsters[0].id);
+            monsterList.value = monsters[0].id;
+        }
+ 
+    </script>
+   
+   
+</body>
+</html>
+ 
